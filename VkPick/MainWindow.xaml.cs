@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VkNet;
+using VkNet.Enums.Filters;
+using VkPick.Utils;
+
 
 namespace VkPick
 {
@@ -20,9 +24,19 @@ namespace VkPick
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static VkApi _api;
         public MainWindow()
         {
             InitializeComponent();
+            _frame = MainFrame;
+
+            
+        }
+
+        private static Frame _frame;
+        public static void GoPage(Page page)
+        {
+            MainWindow._frame.NavigationService.Navigate(page);
         }
     }
 }
